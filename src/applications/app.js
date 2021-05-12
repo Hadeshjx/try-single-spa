@@ -40,16 +40,16 @@ export function getAppChanges(){
             case BOOTSTRAPPING:    
             case NOT_MOUNTED:    
                 if(appShouldBeActive){
-                    appsToLoad.push(app) 
+                    appsToMount.push(app)
                 }
                 break    
             case MOUNTED:
                 if(!appShouldBeActive){
-                    appsToMount.push(app)
+                    appsToUnmount.push(app)
                 }    
-
+                break
             default:
-                break;
+                break
         }
     })
     return {appsToUnmount,appsToLoad,appsToMount}
